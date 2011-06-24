@@ -79,7 +79,7 @@ get_token_value(time, Log) ->
 		fun(X) ->
 			log4erl_utils:return_2columns(integer_to_list(X))
 		end,
-		[H,M,S]),    
+		[H,M,S]),
     Res = A ++ ":" ++ B ++ ":" ++ C,
     Res;
 get_token_value(time2, Log) ->
@@ -137,7 +137,10 @@ get_token_value(log, Log) ->
     Data = Log#log.data,
     io_lib:format(Msg, Data);
 get_token_value(level, Log) ->
-    atom_to_list(Log#log.level);
+    case Log#log.level of
+        info  -> "info ";
+        Level -> atom_to_list(Level)
+    end;
 get_token_value(new_line, _Log) ->
     "\n";
 % GMT TZ
