@@ -19,7 +19,7 @@
 	log_formatter,
 	logger_guard,
 	log_manager,
-	mochinum,
+	log_mochinum,
 	smtp_appender,
 	smtp_fsm,
 	syslog_appender,

@@ -206,7 +206,7 @@ elements(Log, [#xml_spec{name=N, format=F}|Rest], Acc) ->
     S = "\t<" ++ Name ++ ">" ++ escape(L) ++"</" ++ Name ++ ">\n",
     elements(Log, Rest, [S|Acc]).
 
-%% The following code is copied/pasted from mochiweb's 'mochiweb_html' & 'mochinum' modules
+%% The following code is copied/pasted from mochiweb's 'mochiweb_html' & 'log_mochinum' modules
 %% See http://code.google.com/p/mochiweb
 
 %% @spec escape(string() | atom() | binary()) -> binary()
@@ -230,7 +230,7 @@ escape_attr(S) when is_list(S) ->
 escape_attr(I) when is_integer(I) ->
     escape_attr(integer_to_list(I), []);
 escape_attr(F) when is_float(F) ->
-    escape_attr(mochinum:digits(F), []).
+    escape_attr(log_mochinum:digits(F), []).
 
 escape([], Acc) ->
     lists:reverse(Acc);
